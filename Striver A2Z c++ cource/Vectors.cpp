@@ -1,34 +1,51 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
-void explainVector(){
-    vector<int> v; // This line creates a vector named v
 
-    v.push_back(1);// This will insert 1 into vector v
-    v.emplace_back(2);// This is same as pushback . This is more faster than puch back
+void explainVector() {
+    vector<int> v; // Create an empty vector of integers
 
-    vector<pair<int,int>>vec;
+    v.push_back(1); // Insert 1 into the vector v
+    v.emplace_back(2); // Same as push_back, but slightly faster in some cases
 
-     v.push_back({1,2});
-     v.emplace_back(1,2);
+    // Vector of pairs
+    vector<pair<int, int>> vec;
 
-     vector<int> v(5,100); //This will return v={100,100,100,100,100}
-     vector<int> v(5);//This will return any garbage value
+    vec.push_back({1, 2}); // Add a pair {1, 2} using push_back
+    vec.emplace_back(3, 4); // Add a pair {3, 4} using emplace_back (faster)
 
-     vector<int> v1(5,10);
-     vector<int> v2(v1);// This will return an anothor vector containing 5 items of 10
+    // Vector initialization
+    vector<int> v1(5, 100); // Creates a vector with 5 elements, all initialized to 100
+    vector<int> v2(5);      // Creates a vector with 5 elements, all initialized to 0
 
+    vector<int> v3(v1); // Copies the contents of v1 into v3
 
-    vector<int>::iterator it =v.begin();
+    // Iterators
+    vector<int>::iterator it = v1.begin();
     it++;
-    cout<<*(it)<<" ";
+    cout << *(it) << " "; // Access the second element in v1
 
-    it=it+2;
-    cout<<*(it)<<" ";
+    it = it + 2;
+    cout << *(it) << " "; // Access the fourth element in v1
 
-    vector<int>::iterator it =v.end();
-    vector<int>::iterator it =v.rend();
-    vector<int>::iterator it =v.end();
+    // Accessing elements
+    cout << v[0] << " " << v.at(0) << " "; // Access elements safely using `at`
+    cout << v.back() << " "; // Access the last element
 
+    // Loop using iterator
+    for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
+        cout << *(it) << " ";
+    }
+    cout << endl;
 
+    // Loop using range-based for loop (preferred)
+    for (auto value : v) {
+        cout << value << " ";
+    }
+    cout << endl;
+}
 
+int main() {
+    explainVector();
+    return 0;
 }

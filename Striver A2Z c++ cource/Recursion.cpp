@@ -91,7 +91,19 @@ using namespace std;
 // }
 
 
-int n,i;
-void f(int i, int n){
-    
-}
+
+// Print numbers from 0 to N in reverse order using backtrack
+// int n,i;
+// void f(int i, int n){
+//     if(i>n)
+//     return;
+//     f(i+1,n);
+//     cout<<i<<" ";
+  
+// }
+// int main(){
+//      cout<<"Enter value for n"; 
+//      cin>>n;
+//     f(i,n);
+//     return 0; 
+// }
